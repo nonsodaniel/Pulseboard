@@ -25,8 +25,8 @@ export default function RevenueChart() {
           <option>Last 3 months</option>
         </select>
       </div>
-      <div style={{ height: 280, width: 700 }}>
-        <ResponsiveContainer width={700} height="100%">
+      <div className="w-full" style={{ height: 280 }}>
+        <ResponsiveContainer width="100%" height="100%">
           <LineChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="month" tick={{ fontSize: 12 }} />
