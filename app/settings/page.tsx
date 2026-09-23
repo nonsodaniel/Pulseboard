@@ -4,11 +4,11 @@ import DashboardLayout from "@/components/DashboardLayout";
 export default function SettingsPage() {
   return (
     <DashboardLayout breadcrumb="Settings">
-      <div className="max-w-3xl">
+      <div className="min-w-[700px]">
         <h1 className="text-xl font-bold text-gray-900 mb-6">Settings</h1>
         <div className="bg-white border border-gray-200 rounded-lg p-6">
           <h2 className="text-base font-semibold text-gray-900 mb-4">Profile Information</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
               <input
