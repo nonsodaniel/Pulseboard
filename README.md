@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PulseBoard
 
-## Getting Started
+A modern SaaS analytics dashboard built for multimodal UI bug-fix benchmarking.
 
-First, run the development server:
+**Live:** https://pulseboard-eight-zeta.vercel.app
+
+## Stack
+
+- Next.js 16 · TypeScript · Tailwind CSS · Recharts · Lucide icons
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Bug Registry
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+See [BUG_REGISTRY.md](./BUG_REGISTRY.md) for all 7 independently reproducible UI bugs with buggy/fix commit SHAs.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| # | Feature | Buggy SHA | Fix SHA |
+|---|---------|-----------|---------|
+| 1 | Mobile Navigation Drawer | `03d8e5b` | `4bfd2c6` |
+| 2 | KPI Card Grid Overflow | `f0da208` | `e1f4cb5` |
+| 3 | Analytics Chart Fixed Width | `76af613` | `96c9927` |
+| 4 | Projects Table No Scroll | `97769b0` | `7106ab5` |
+| 5 | Settings Form Overflow | `0fb61db` | `a1fe6dd` |
+| 6 | Notification Dropdown Overflow | `f50f495` | `30e4b89` |
+| 7 | Invite Modal Too Wide | `1d68a92` | `7f19e20` |
