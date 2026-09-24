@@ -14,7 +14,7 @@ export default function Header({ breadcrumb }: HeaderProps) {
   const userRef = useRef<HTMLDivElement>(null);
   const [notifications, setNotifications] = useState(notificationsData);
 
-  const unreadCount = notifications.filter((n) => !n.read).length;
+  const unreadCount = notifications.length;
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
