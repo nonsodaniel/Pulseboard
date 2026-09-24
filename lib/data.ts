@@ -122,6 +122,23 @@ export const notificationsData = [
   },
 ];
 
+export const teamData = [
+  { id: 1, name: "Alice Chen", role: "Designer", email: "alice@company.com", status: "active", initial: "A" },
+  { id: 2, name: "Bob Kim", role: "Developer", email: "bob@company.com", status: "active", initial: "B" },
+  { id: 3, name: "Carol White", role: "Product Manager", email: "carol@company.com", status: "away", initial: "C" },
+  { id: 4, name: "David Lee", role: "Developer", email: "david@company.com", status: "active", initial: "D" },
+  { id: 5, name: "Eva Martinez", role: "QA Engineer", email: "eva@company.com", status: "active", initial: "E" },
+  { id: 6, name: "Frank Zhang", role: "DevOps", email: "frank@company.com", status: "offline", initial: "F" },
+];
+
+export const reportsData = [
+  { id: 1, title: "Q4 Revenue Summary", type: "Financial", date: "2024-01-15", status: "Ready" },
+  { id: 2, title: "User Growth Analysis", type: "Analytics", date: "2024-01-12", status: "Ready" },
+  { id: 3, title: "Project Status Overview", type: "Operations", date: "2024-01-10", status: "Ready" },
+  { id: 4, title: "Team Performance Review", type: "HR", date: "2024-01-08", status: "Draft" },
+  { id: 5, title: "Security Audit Report", type: "Security", date: "2024-01-05", status: "Ready" },
+];
+
 export const activityData = [
   {
     id: 1,
