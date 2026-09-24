@@ -60,27 +60,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 py-4 px-3">
-          {navItems.map(({ label, href, icon: Icon }) => {
-            const active = pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                onClick={onClose}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-md mb-1 text-sm font-medium transition-colors
-                  ${
-                    active
-                      ? "bg-blue-50 text-blue-700"
-                      : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                  }`}
-              >
-                <Icon className="w-4 h-4 flex-shrink-0" />
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
+        <nav className="flex-1 py-4 px-3"></nav>
 
         {/* User */}
         <div className="px-4 py-4 border-t border-gray-200">
