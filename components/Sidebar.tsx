@@ -53,16 +53,30 @@ export default function Sidebar() {
         })}
       </nav>
 
-      {/* User */}
+      {/* Profile card */}
       <div className="px-4 py-4 border-t border-gray-200">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-medium">
-            N
+        <div className="bg-gray-50 rounded-lg p-3">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="relative flex-shrink-0">
+              <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-semibold">
+                N
+              </div>
+              <div className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-white" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-gray-900 truncate">Nonso Daniel</p>
+              <p className="text-xs text-gray-500 truncate">Product Manager</p>
+            </div>
+            <span className="ml-auto text-xs font-medium text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded flex-shrink-0">
+              Pro
+            </span>
           </div>
-          <div className="min-w-0">
-            <p className="text-sm font-medium text-gray-900 truncate">Nonso Daniel</p>
-            <p className="text-xs text-gray-500 truncate">nonso@company.com</p>
-          </div>
+          <a
+            href="#"
+            className="block text-center text-xs font-medium text-gray-600 hover:text-gray-900 bg-white border border-gray-200 rounded-md py-1.5 transition-colors"
+          >
+            View Profile
+          </a>
         </div>
       </div>
     </aside>
