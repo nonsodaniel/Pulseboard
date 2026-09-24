@@ -3,11 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { Search, Bell, ChevronDown, Zap } from "lucide-react";
 import { notificationsData } from "@/lib/data";
 
-interface HeaderProps {
-  breadcrumb: string;
-}
-
-export default function Header({ breadcrumb }: HeaderProps) {
+export default function Header() {
   const [notifOpen, setNotifOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
   const notifRef = useRef<HTMLDivElement>(null);
@@ -42,12 +38,6 @@ export default function Header({ breadcrumb }: HeaderProps) {
           <Zap className="w-4 h-4 text-blue-600" />
           <span className="text-sm font-semibold text-gray-900">PulseBoard</span>
         </div>
-        {/* Desktop: breadcrumb */}
-        <nav className="text-sm text-gray-500 hidden md:flex items-center gap-1">
-          <span>Home</span>
-          <span>/</span>
-          <span className="text-gray-900 font-medium">{breadcrumb}</span>
-        </nav>
       </div>
 
       {/* Right */}
