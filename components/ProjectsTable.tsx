@@ -11,7 +11,7 @@ const statusColors: Record<string, string> = {
 };
 
 export default function ProjectsTable() {
-  const [projects, setProjects] = useState(projectsData);
+  const [projects, setProjects] = useState<typeof projectsData>([]);
   const [modalOpen, setModalOpen] = useState(false);
 
   function deleteProject(id: number) {
