@@ -9,6 +9,11 @@
 | 5 | Settings Form Overflow | 0fb61db | a1fe6dd | 375×812 | app/settings/page.tsx |
 | 6 | Notification Dropdown Overflow | f50f495 | 30e4b89 | 390×844 | components/Header.tsx |
 | 7 | Invite Modal Too Wide | 1d68a92 | 7f19e20 | 390×844 | components/InviteModal.tsx |
+| 8 | Sidebar Navigation Missing | 7f9c9f3 | 9aaf1c9 | 1440×900 | components/Sidebar.tsx |
+| 9 | Header Search Bar Missing | e6d0fbc | 1fa91d7 | 1440×900 | components/Header.tsx |
+| 10 | KPI Card Trend Indicators Missing | 871e17a | 69b09d1 | 1440×900 | components/KpiCard.tsx |
+| 11 | Team Page Unstyled Member List | ee8d60d | 13fb7f7 | 1440×900 | app/team/page.tsx |
+| 12 | Reports Page Unstyled Report List | 9248f9c | 233d980 | 1440×900 | app/reports/page.tsx |
 
 ---
 
@@ -184,3 +189,128 @@
 **Expected:** Modal uses `w-full max-w-md` so it fits within any viewport with padding
 
 **Actual:** Modal is hardcoded to 600px wide, overflowing 390px and narrower viewports
+
+---
+
+## Bug 8 — Sidebar Navigation Items Missing
+
+**Feature:** Sidebar navigation
+
+**Bug:** The sidebar renders the logo header and user footer correctly, but the `<nav>` element is completely empty — all navigation links (Dashboard, Analytics, Projects, Team, Reports, Settings) are stripped out. Users cannot navigate to any page.
+
+**Viewport:** 1440×900
+
+**Buggy commit:** `7f9c9f3`
+
+**Fix commit:** `9aaf1c9`
+
+**Affected files:** `components/Sidebar.tsx`
+
+**How to reproduce:**
+1. Open the app at any viewport width
+2. Observe the left sidebar — it shows the PulseBoard logo and user info at the bottom
+3. The navigation area between is completely blank — no links, no icons
+
+**Expected:** Sidebar shows six navigation links (Dashboard, Analytics, Projects, Team, Reports, Settings) each with an icon, with the active route highlighted in blue
+
+**Actual:** Nav section is empty — no links render, making the app impossible to navigate
+
+---
+
+## Bug 9 — Header Search Bar Missing
+
+**Feature:** Header search input
+
+**Bug:** The search bar input field is completely removed from the header. At desktop widths (≥768px), the right side of the header shows only the notification bell and user menu — the search input that should appear between the breadcrumb and notifications is absent.
+
+**Viewport:** 1440×900
+
+**Buggy commit:** `e6d0fbc`
+
+**Fix commit:** `1fa91d7`
+
+**Affected files:** `components/Header.tsx`
+
+**How to reproduce:**
+1. Open the app at a desktop viewport (≥768px wide)
+2. Look at the right side of the header
+3. The search input field is missing — only the bell icon and user avatar are present
+
+**Expected:** A search input with a magnifying glass icon appears to the left of the notification bell
+
+**Actual:** No search bar — the entire search input div has been removed from the header
+
+---
+
+## Bug 10 — KPI Card Trend Indicators Missing
+
+**Feature:** Dashboard KPI metric cards
+
+**Bug:** Each KPI card shows only the metric title and its large numeric value. The trend section — which includes a directional arrow icon, the percentage change (e.g. "+12.5%"), and the comparison label ("vs last month") — is stripped from all four cards.
+
+**Viewport:** 1440×900
+
+**Buggy commit:** `871e17a`
+
+**Fix commit:** `69b09d1`
+
+**Affected files:** `components/KpiCard.tsx`
+
+**How to reproduce:**
+1. Open the dashboard at any viewport width
+2. Observe the four KPI cards (Total Revenue, Active Users, Conversion Rate, Active Projects)
+3. Each card shows only the title and the big number — no trend arrow, no change percentage, no description
+
+**Expected:** Below the metric value, a colored trend icon (↑ green or ↓ red) appears alongside the percentage change and "vs last month" label
+
+**Actual:** The trend section is absent — cards show bare numbers with no context or directional information
+
+---
+
+## Bug 11 — Team Page Unstyled Member List
+
+**Feature:** Team member directory
+
+**Bug:** The Team page imports and iterates over `teamData` but renders each member as a plain `<div>` with no structure — just the member's name in tiny unstyled text with 4px padding. There are no avatar circles, no role labels, no email addresses, no status badges, and no grid layout.
+
+**Viewport:** 1440×900
+
+**Buggy commit:** `ee8d60d`
+
+**Fix commit:** `13fb7f7`
+
+**Affected files:** `app/team/page.tsx`
+
+**How to reproduce:**
+1. Navigate to /team
+2. Six team member names appear as a plain vertical list of unstyled text
+3. No visual structure, cards, avatars, roles, emails, or status indicators are present
+
+**Expected:** Team members displayed in a structured card grid with avatar initials, name, role, email, and colored status badge
+
+**Actual:** Member names rendered as a raw unstyled list — no cards, no visual hierarchy, no member metadata visible
+
+---
+
+## Bug 12 — Reports Page Unstyled Report List
+
+**Feature:** Reports list
+
+**Bug:** The Reports page imports and iterates over `reportsData` but renders each report as a plain `<div>` with only the report title in unstyled text with 4px padding. There are no file icons, type badges, status indicators, dates, or download buttons.
+
+**Viewport:** 1440×900
+
+**Buggy commit:** `9248f9c`
+
+**Fix commit:** `233d980`
+
+**Affected files:** `app/reports/page.tsx`
+
+**How to reproduce:**
+1. Navigate to /reports
+2. Five report titles appear as a plain vertical list of unstyled text
+3. No icons, type classifications, status labels, dates, or actions are visible
+
+**Expected:** Reports displayed in a structured list panel with a file icon, report title, date, type badge (colored by category), status badge (Ready/Draft), and a download action button per row
+
+**Actual:** Report titles rendered as a raw unstyled list — no layout container, no metadata, no actions
