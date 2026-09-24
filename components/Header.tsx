@@ -1,14 +1,13 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { Menu, Search, Bell, ChevronDown } from "lucide-react";
+import { Search, Bell, ChevronDown, Zap } from "lucide-react";
 import { notificationsData } from "@/lib/data";
 
 interface HeaderProps {
-  onMenuClick: () => void;
   breadcrumb: string;
 }
 
-export default function Header({ onMenuClick, breadcrumb }: HeaderProps) {
+export default function Header({ breadcrumb }: HeaderProps) {
   const [notifOpen, setNotifOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
   const notifRef = useRef<HTMLDivElement>(null);
@@ -37,14 +36,14 @@ export default function Header({ onMenuClick, breadcrumb }: HeaderProps) {
   return (
     <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 flex-shrink-0">
       {/* Left */}
-      <div className="flex items-center gap-3">
-        <button
-          onClick={onMenuClick}
-          className="p-2 rounded-md text-gray-500 hover:bg-gray-100"
-        >
-          <Menu className="w-5 h-5" />
-        </button>
-        <nav className="text-sm text-gray-500 hidden sm:flex items-center gap-1">
+      <div className="flex items-center gap-2">
+        {/* Mobile: logo mark */}
+        <div className="flex items-center gap-1.5 md:hidden">
+          <Zap className="w-4 h-4 text-blue-600" />
+          <span className="text-sm font-semibold text-gray-900">PulseBoard</span>
+        </div>
+        {/* Desktop: breadcrumb */}
+        <nav className="text-sm text-gray-500 hidden md:flex items-center gap-1">
           <span>Home</span>
           <span>/</span>
           <span className="text-gray-900 font-medium">{breadcrumb}</span>
@@ -53,7 +52,7 @@ export default function Header({ onMenuClick, breadcrumb }: HeaderProps) {
 
       {/* Right */}
       <div className="flex items-center gap-2">
-        {/* Search */}
+        {/* Search - desktop only */}
         <div className="relative hidden md:block">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
