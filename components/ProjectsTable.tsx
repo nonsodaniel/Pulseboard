@@ -11,7 +11,12 @@ const statusColors: Record<string, string> = {
 };
 
 export default function ProjectsTable() {
+  const [projects, setProjects] = useState(projectsData);
   const [modalOpen, setModalOpen] = useState(false);
+
+  function deleteProject(id: number) {
+    setProjects((prev) => prev.filter((p) => p.id !== id));
+  }
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg">
@@ -37,7 +42,7 @@ export default function ProjectsTable() {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-50">
-            {projectsData.map((p) => (
+            {projects.map((p) => (
               <tr key={p.id} className="hover:bg-gray-50">
                 <td className="px-5 py-3 font-medium text-gray-900 whitespace-nowrap">{p.name}</td>
                 <td className="px-5 py-3 text-gray-600 whitespace-nowrap">{p.owner}</td>
@@ -61,7 +66,12 @@ export default function ProjectsTable() {
                 <td className="px-5 py-3">
                   <div className="flex gap-2">
                     <button className="text-xs text-blue-600 hover:underline whitespace-nowrap">Edit</button>
-                    <button className="text-xs text-red-500 hover:underline whitespace-nowrap">Delete</button>
+                    <button
+                      onClick={() => deleteProject(p.id)}
+                      className="text-xs text-red-500 hover:underline whitespace-nowrap"
+                    >
+                      Delete
+                    </button>
                   </div>
                 </td>
               </tr>
